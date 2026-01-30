@@ -17,8 +17,8 @@ const testCases = [
   },
   {
     id: 'Pos_Fun_0003',
-    input: 'mata help ekak karanna puLuvandha?',
-    expected: 'මට help එකක් කරන්න පුළුවන්ද?',
+    input: 'mata podi sahayak karanna puLuvandha?',
+    expected: 'මට පොඩි සහයක් කරන්න පුළුවන්ද?',
     description: 'Convert a short request phrase'
   },
   {
@@ -29,8 +29,8 @@ const testCases = [
   },
   {
     id: 'Pos_Fun_0005',
-    input: 'mama dhaen vaeda karanavaa.',
-    expected: 'මම දැන් වැඩ කරනවා.',
+    input: 'mama dhaen pothak kiyavanavaa.',
+    expected: 'මම දැන් පොතක් කියවනවා.',
     description: 'Convert present tense daily activity'
   },
   {
@@ -71,8 +71,8 @@ const testCases = [
   },
   {
     id: 'Pos_Fun_0012',
-    input: 'mata udhavvak karanna puLuvandha?',
-    expected: 'මට උදව්වක් කරන්න පුළුවන්ද?',
+    input: 'karuNaakara mata maargaya kiyannako.',
+    expected: 'කරුණාකර මට මාර්ගය කියන්නකෝ.',
     description: 'Convert short polite request'
   },
   {
@@ -83,8 +83,8 @@ const testCases = [
   },
   {
     id: 'Pos_Fun_0014',
-    input: 'api passee kathaa karamu',
-    expected: 'අපි පස්සේ කතා කරමු',
+    input: 'api raeta pansal yamu.',
+    expected: 'අපි රෑට පන්සල් යමු.',
     description: 'Convert future intention sentence'
   },
   {
@@ -113,8 +113,8 @@ const testCases = [
   },
   {
     id: 'Pos_Fun_0019',
-    input: 'eka hari',
-    expected: 'එක හරි',
+    input: 'eka nikan balanna.',
+    expected: 'එක නිකන් බලන්න.',
     description: 'Convert simple confirmation'
   },
   {
@@ -162,8 +162,8 @@ const testCases = [
   // Negative Scenarios Start Here
   {
     id: 'Neg_Fun_0001',
-    input: 'thaththaahetaenavaa',
-    expected: 'තත්තාහෙටැනවා',
+    input: 'ayyamaththugegedharagihilla.',
+    expected: 'අයියමත්තුගෙගෙදරගිහිල්ල.',
     description: 'Incorrect conversion due to missing word spaces'
   },
   {
