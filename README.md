@@ -8,7 +8,7 @@ This repository contains the Playwright automation scripts for Assignment 1 of t
 
 ## Project Structure
 - `tests/IT23768758.spec.js`: Contains all Functional (Positive/Negative) and UI test cases.
-- `Assignment 1(IT23768758)- Test cases.xlsx`: The detailed test case documentation.
+- `IT23768758_TestCases.xlsx`: The detailed test case documentation.
 - `playwright.config.js`: Playwright configuration file.
 
 ## Prerequisites
