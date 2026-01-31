@@ -1,7 +1,6 @@
-// assignment1.spec.js
 const { test, expect } = require('@playwright/test');
 
-// 1. Functional Test Cases (Positive & Negative)
+//  Functional Test Cases (Positive & Negative)
 const testCases = [
   {
     id: 'Pos_Fun_0001',
@@ -228,7 +227,7 @@ const testCases = [
   }
 ];
 
-// 2. Functional Test Execution Loop
+//  Functional Test Execution Loop
 test.describe('IT3040 Assignment 1 - Functional Tests', () => {
 
   test.beforeEach(async ({ page }) => {
@@ -245,12 +244,12 @@ test.describe('IT3040 Assignment 1 - Functional Tests', () => {
       const inputLocator = page.getByPlaceholder('Input Your Singlish Text Here.');
       const outputLocator = page.locator('div.w-full.h-80.bg-slate-50');
 
-      // 1. Clear Input
+      //  Clear Input
       await inputLocator.click();
       await page.keyboard.press('Control+A');
       await page.keyboard.press('Backspace');
 
-      // 2. Type word-by-word
+      // Type word-by-word
       const words = data.input.split(' ');
       for (let i = 0; i < words.length; i++) {
         await inputLocator.pressSequentially(words[i], { delay: 10 });
@@ -259,11 +258,11 @@ test.describe('IT3040 Assignment 1 - Functional Tests', () => {
         }
       }
 
-      // 3. Trigger conversion
+      // Trigger conversion
       await page.keyboard.press('Space');
       await page.waitForTimeout(500);
 
-      // 4. Verify output
+      // Verify output
       await expect(async () => {
         const actualText = (await outputLocator.innerText()).trim().replace(/\s+/g, ' ');
         const expectedText = data.expected.trim().replace(/\s+/g, ' ');
@@ -275,7 +274,7 @@ test.describe('IT3040 Assignment 1 - Functional Tests', () => {
   });
 });
 
-// 3. UI Test Scenario
+// UI Test Scenario
 test.describe('IT3040 Assignment 1 - UI Tests', () => {
 
   test('Pos_UI_0001: Real-time update on text replacement', async ({ page }) => {
@@ -285,20 +284,22 @@ test.describe('IT3040 Assignment 1 - UI Tests', () => {
     const inputLocator = page.getByPlaceholder('Input Your Singlish Text Here.');
     const outputLocator = page.locator('div.w-full.h-80.bg-slate-50');
 
-    // Step 1: Type initial text
-    await inputLocator.fill('irusha yanna');
+    // Type initial text
+    await inputLocator.pressSequentially('irusha yanna', { delay: 100 });
 
     // Press Space to trigger conversion
     await page.keyboard.press('Space');
 
     await expect(outputLocator).toHaveText('ඉරුශ යන්න', { timeout: 15000 });
 
-    // Step 2: Replace text
-    await inputLocator.clear();
-    await inputLocator.fill('irusha enna');
+    // Replace text
+    await inputLocator.click();
+    await page.keyboard.press('Control+A');
+    await page.keyboard.press('Backspace');
+    await inputLocator.pressSequentially('irusha enna', { delay: 100 });
     await page.keyboard.press('Space');
 
-    // Step 3: Verify realtime update
+    // Verify realtime update
     await expect(outputLocator).toHaveText('ඉරුශ එන්න', { timeout: 15000 });
   });
 
