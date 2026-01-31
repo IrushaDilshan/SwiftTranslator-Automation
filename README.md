@@ -57,4 +57,4 @@ npx playwright test --project=chromium
 - **API Mocking**: Ensuring reliable testing by mocking the transliteration API responses.
 
 ---
-**Submitted by:** Irusha Dilshan (IT23768758)
+**Submitted by:** Vidanapthirana I.D.(IT23768758)

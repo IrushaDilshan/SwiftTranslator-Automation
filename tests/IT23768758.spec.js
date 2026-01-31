@@ -296,6 +296,7 @@ test.describe('IT3040 Assignment 1 - UI Tests', () => {
     await inputLocator.click();
     await page.keyboard.press('Control+A');
     await page.keyboard.press('Backspace');
+    await page.waitForTimeout(2000);
     await inputLocator.pressSequentially('irusha enna', { delay: 100 });
     await page.keyboard.press('Space');
 
